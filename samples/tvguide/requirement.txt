@@ -1,0 +1,11 @@
+1. It is a tv program guide
+2. It lists all available channels
+3. In each channel it lists programs for next 7 days
+4. User can retrive program information like title, description, image, actors etc.
+5. User can search a program by title
+6. User can search programs by time
+
+
+7. There are two kind of users - admin, general users
+8. admin has no user interface
+9. user has command line interface
