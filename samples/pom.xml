@@ -13,6 +13,7 @@
     <modules>
         <module>misc</module>
         <module>cli</module>
+        <module>logging</module>
         <module>tvguide</module>
     </modules>
 

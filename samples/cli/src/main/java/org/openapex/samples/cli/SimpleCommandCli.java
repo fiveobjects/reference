@@ -9,13 +9,13 @@ public class SimpleCommandCli {
     }
 
     @CommandLine.Command(name = "message")
-    private static class GetMessage implements Runnable {
+    public static class GetMessage implements Runnable {
         @CommandLine.Option(names = {"-n", "--name"}, description = "User name")
-        private String name;
+        public String name;
         @CommandLine.Option(names = {"-g", "--gender"}, description = "User gender")
-        private char gender;
+        public char gender;
         @CommandLine.Option(names = {"-l", "--location"}, description = "User location")
-        private String location;
+        public String location;
 
         public void run() {
             StringBuilder message = new StringBuilder();
