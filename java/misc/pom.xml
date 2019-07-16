@@ -12,6 +12,11 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <dependencies>
+        <dependency>
+            <groupId>javax.xml.parsers</groupId>
+            <artifactId>jaxp-api</artifactId>
+            <version>1.4.5</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>misc</finalName>

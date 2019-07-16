@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Array Merge with Relation</title>
+</head>
+
+<body>
+    <script>
+        const parent = [{ pid: 1, pname: 'jack' }, { pid: 2, pname: 'jhon' }];
+        const child = [
+            { cid: 1, cname: 'zhina', pid: 1 },
+            { cid: 2, cname: 'mandy', pid: 1 },
+            { cid: 3, cname: 'henry', pid: 2 },
+            { cid: 4, cname: 'jhonny', pid: 2 }
+        ];
+        result = parent.map(item => {
+            return {
+                ...item,
+                children: child.filter(childItem => {
+                    return childItem.pid == item.pid;
+                })
+            }
+        });
+        console.log(result);
+    </script>
+</body>
+
+</html>
