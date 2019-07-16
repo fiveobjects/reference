@@ -1,37 +1,37 @@
 
 # coding: utf-8
 
-# In[14]:
+# In[67]:
 
 
 import pandas as pd
 
 
-# In[15]:
+# In[68]:
 
 
 from pandas import DataFrame
 
 
-# In[16]:
+# In[69]:
 
 
-df = pd.read_csv(r'C:\data\user.csv', header='infer', sep=';')
+df = pd.read_csv(r'data/user.csv', header='infer', sep=';')
 
 
-# In[17]:
+# In[70]:
 
 
 df
 
 
-# In[19]:
+# In[71]:
 
 
 json = df.to_json(orient='records')
 
 
-# In[20]:
+# In[72]:
 
 
 json
