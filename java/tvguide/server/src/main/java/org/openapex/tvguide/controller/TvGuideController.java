@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController(value = "tvGuideController")
 @RequestMapping(path = "/guide")
+@CrossOrigin(maxAge = 3600)
 public class TvGuideController {
     @Autowired
     private TvGuideService tvGuideService;

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax Interaction</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var http = new XMLHttpRequest();
+        var url = "http://localhost:8080/guide/channel";
+        var params = '{"channelNumber": 110,"name": "Star Sprorts HD1","price": 20,"channelGroup": "Star"}';
+        http.open("POST", url, true);
+        http.setRequestHeader("Content-type", "application/json; charset=utf-8");
+        http.onreadystatechange = function () {
+            if (http.readyState == 4 && http.status == 200) {
+                alert(http.status);
+            }
+        }
+        http.send(params);
+
+    </script>
+</body>
+
+</html>
