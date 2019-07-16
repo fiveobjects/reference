@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Creater</title>
+</head>
+
+<body>
+    <p class="hello">Hello</p>
+    <button id="kick">
+        Create ME
+    </button>
+    <script>
+        let btn = document.getElementById("kick");
+        btn.onclick = function () {
+            let NewP = document.createElement("p");
+            let createText = document.createTextNode("Hello");
+            NewP.appendChild(createText);
+            NewP.classList.add("hello");
+            NewP.onclick = function () {
+                window.alert("Hello")
+            };
+            document.body.appendChild(NewP);
+        }
+
+    </script>
+</body>
+
+</html>

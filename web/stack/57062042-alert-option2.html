@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Creater</title>
+</head>
+
+<body>
+    <p class="hello">Hello</p>
+    <button id="kick">
+        Create ME
+    </button>
+    <button onclick="assignBulkEvent()">Assign Bulk Event</button>
+    <script>
+        let btn = document.getElementById("kick");
+        btn.onclick = function () {
+            let NewP = document.createElement("p");
+            let createText = document.createTextNode("Hello");
+            NewP.appendChild(createText);
+            NewP.classList.add("hello");
+            document.body.appendChild(NewP);
+        }
+        function assignBulkEvent() {
+            let allClasshello = document.getElementsByClassName("hello");
+            let allClasshelloAr = Array.from(allClasshello);
+            allClasshelloAr.forEach(function popup(elemetnWithHello) {
+                elemetnWithHello.onclick = function () {
+                    window.alert("Hello")
+                }
+            })
+        }
+
+    </script>
+</body>
+
+</html>
