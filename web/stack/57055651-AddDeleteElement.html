@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Delete Elements</title>
+    <script>
+        var count = 1;       
+        function add_new() {
+            var div1 = document.createElement('div');
+            var delLink = '<button type="button" onclick="deleteLink(' + count + ')" class="btn btn-primary">Delete ' + count + '</button>';
+            div1.id = count;
+            div1.innerHTML = delLink;
+            document.getElementById('add_link').appendChild(div1);
+            show_message('Element ' + count + ' added')
+            count++;
+        }
+
+        function deleteLink(eleId) {
+            var ele = document.getElementById(eleId);
+            if (ele != null) {
+                var par = document.getElementById('add_link');
+                par.removeChild(ele);               
+                reset_counter(eleId);
+                show_message('Element ' + eleId + ' deleted');
+            } else {
+                show_message('Element ' + eleId + ' does not exist')
+            }
+        }
+
+        function reset_counter(deletedCount) {
+            for (var impactedElementId = deletedCount + 1; impactedElementId < count; impactedElementId++) {
+                var currentElement = document.getElementById(impactedElementId);
+                currentElement.id = impactedElementId - 1;
+                var button = currentElement.firstChild;
+                button.innerHTML = 'Delete ' + currentElement.id;
+                button.setAttribute('onclick', 'deleteLink(' + currentElement.id + ')');
+            }
+            count--;
+        }
+
+        function show_message(message) {
+            document.getElementById('message').innerHTML = message;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="message"></div>
+    <div style="margin-top:20px;">
+        <input type="button" onclick="add_new()" value="Add Element" /><br /><br />
+    </div>
+    <div id="add_link" style="margin-top:20px;"></div>
+</body>
+
+</html>
