@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax Interaction</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="fitmentData" class='[
+        { "brand" : "Honda" , "model" : "SL350" , "year" : "1969" }, 
+        { "brand" : "Honda" , "model" : "SL175" , "year" : "1970" }, 
+        { "brand" : "Honda" , "model" : "SL350" , "year" : "1970" }, 
+        { "brand" : "Honda" , "model" : "SL175" , "year" : "1971" }, 
+        { "brand" : "Honda" , "model" : "SL350" , "year" : "1971" }, 
+        { "brand" : "Honda" , "model" : "SL175" , "year" : "1972" }, 
+        { "brand" : "Honda" , "model" : "SL350" , "year" : "1972" }, 
+        { "brand" : "Honda" , "model" : "XL250" , "year" : "1972" }, 
+        { "brand" : "Honda" , "model" : "XL175" , "year" : "1973" }, 
+        { "brand" : "Honda" , "model" : "SL350" , "year" : "1973" }]'>
+
+        <select name="year" id="year"></select>
+        <select id="make" name="make"></select>
+        <select id="model" name="model"></select>
+
+    </div>
+    <script>
+        
+        window.onload = function () {
+            //year
+            let yearDropdown = $('#year');
+            yearDropdown.append('<option selected="true" disabled>Choose Year</option>')
+                .on('change', function () { })
+
+
+            var data = JSON.parse(document.getElementById("fitmentData").getAttribute("class"));
+
+            //append json years in dropdown
+
+            $.each(data, function (key, entry) {
+                yearDropdown.append($('<option>', {
+                    value: entry.year,
+                    text: entry.year
+                }));
+            });
+            //remove year duplicates
+            var map = {}
+            $('select option').each(function () {
+                if (map[this.value]) {
+                    $(this).remove()
+                }
+                map[this.value] = true;
+            })
+        }
+
+    </script>
+</body>
+
+</html>
