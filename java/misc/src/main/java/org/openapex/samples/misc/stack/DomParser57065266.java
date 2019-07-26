@@ -20,17 +20,23 @@ public class DomParser57065266 {
             doc.getDocumentElement().normalize();
             System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
             NodeList nodeList = doc.getElementsByTagName("result");
-            String targetValue = "";
+            String minTargetValue = "";
+            String maxTargetValue = "";
             int maxNumVotes = 0;
+            int minNumVotes = Integer.MAX_VALUE;
             for (int i = 0; i < nodeList.getLength(); i++) {
                 Element element = (Element) nodeList.item(i);
                 int numVotes = Integer.parseInt(element.getAttribute("numvotes"));
                 if (numVotes > maxNumVotes) {
                     maxNumVotes = numVotes;
-                    targetValue = element.getAttribute("value");
+                    maxTargetValue = element.getAttribute("value");
+                }
+                if (numVotes < minNumVotes) {
+                    minNumVotes = numVotes;
+                    minTargetValue = element.getAttribute("value");
                 }
             }
-            System.out.println("Value: " + targetValue + " NumVotes: " + maxNumVotes);
+            System.out.println("Min Value: " + minTargetValue + " ,Max Target Value: " + maxTargetValue + ", NumVotes: " + maxNumVotes);
         } catch (Exception e) {
             e.printStackTrace();
         }

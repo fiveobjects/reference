@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>reading json</title>
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="displaydata"></div>
+
+    <script>
+        function loadJSON(callback) {
+
+            var xobj = new XMLHttpRequest();
+            xobj.overrideMimeType("application/json");
+            xobj.open('GET', 'http://localhost:8080/guide/channels', true); // Replace 'my_data' with the path to your file
+            xobj.onreadystatechange = function () {
+                if (xobj.readyState == 4 && xobj.status == "200") {
+                    // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+                    callback(xobj.responseText);
+                }
+            };
+            xobj.send(null);
+        }
+
+        function init() {
+            loadJSON(function (response) {
+                // Parse JSON string into object
+                var actual_JSON = JSON.parse(response);
+                document.getElementById("displaydata").innerHTML = actual_JSON;
+            });
+        }
+        init();
+    </script>
+
+</body>

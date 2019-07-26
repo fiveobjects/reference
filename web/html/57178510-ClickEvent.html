@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        var i = 2;
+
+        $(".category").on('click', function () {
+            //to delegate the click I applied this event to "add product" button's container
+        });
+
+        //This add a product inside category div
+        $(".add-product-btn").click(function () {
+            var id_btn = $(this).attr("id");
+            var single_id = id_btn.substring(id_btn.indexOf("-") + 1);
+            $("#list-" + single_id).append('<div class="item-products">prova</div>');
+            sortable('.list');
+        });
+
+        //This should add a new category inside "container-categorie", with an "add product"
+        //button inside, to add products inside this new category
+
+        $(".add-categoria-container").click(function () {
+            $(".sortable-categorie").append('<div class="categoria"><input type="text" class="input-categoria" placeholder="NOME CATEGORIA PRODOTTI" autofocus="autofocus"><div class="list" id="list-' + i + '"></div><div class="item-products add-product-container"><div align="center" class="add-product-btn" id="addproduct-' + i + '">+ Aggiungi prodotto</div></div></div>');
+            sortable('.sortable-categorie');
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container-categorie">
+        //THIS IS A CATEGORY ITEM, WITH ADD PRODUCT BUTTON INSIDE
+        <div class="category" id="categoria-1">
+            <input type="text" class="input-categoria" placeholder="NAME CATEGORY" autofocus="autofocus">
+            <div class="list" id="list-1">
+                //products will be added here
+            </div>
+            <div class="item-products add-product-container">
+                <div align="center" class="add-product-btn" id="addproduct-1">
+                    + add product
+                </div>
+            </div>
+        </div>
+        //END OF CATEGORY ITEM
+        <div class="add-categoria-container">
+            Nuova categoria
+        </div>
+    </div>
+</body>
+
+</html>
