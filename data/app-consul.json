@@ -1,0 +1,16 @@
+{
+	"limitsconf": {
+		"limits": [
+			{
+				"api": "PUBLISH",
+				"valueType": "REQUEST",
+				"serviceName": "default",
+				"time": {
+					"HOURLY": "10",
+					"MINUTE": "10000"
+				}
+			}
+		]
+	}
+}
+

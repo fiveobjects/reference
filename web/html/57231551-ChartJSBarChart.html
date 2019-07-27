@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax Interaction</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <canvas id='chart-1' width="800" height="800"></canvas>
+    </div>
+    <script>
+        var raw = '[{ "ddate": "07/01/2019", "pprocess": "Arizona", "Subprocess": "Refinance", "Completed": "23", "Recieved": "23" }, { "ddate": "07/01/2019", "pprocess": "Arizona", "Subprocess": "Resale", "Completed": "84", "Recieved": "84" }, { "ddate": "07/01/2019", "pprocess": "Colorado", "Subprocess": "Foreclosure Commitment", "Completed": "1", "Recieved": "1" }, { "ddate": "07/01/2019", "pprocess": "Colorado", "Subprocess": "Mortgage Guarantee", "Completed": "3", "Recieved": "3" }, { "ddate": "07/01/2019", "pprocess": "Colorado", "Subprocess": "New Mexico Refi", "Completed": "6", "Recieved": "6" }, { "ddate": "07/01/2019", "pprocess": "Colorado", "Subprocess": "New Mexico Resale", "Completed": "5", "Recieved": "5" }, { "ddate": "07/01/2019", "pprocess": "Colorado", "Subprocess": "Refinance", "Completed": "62", "Recieved": "62" }, { "ddate": "07/01/2019", "pprocess": "Colorado", "Subprocess": "Resale", "Completed": "69", "Recieved": "69" }, { "ddate": "07/02/2019", "pprocess": "Arizona", "Subprocess": "Refinance", "Completed": "8", "Recieved": "8" }, { "ddate": "07/02/2019", "pprocess": "Arizona", "Subprocess": "Resale", "Completed": "103", "Recieved": "103" }, { "ddate": "07/02/2019", "pprocess": "Chicago Metro", "Subprocess": "Chicago Metro- Refilong", "Completed": "40", "Recieved": "40" }, { "ddate": "07/02/2019", "pprocess": "Colorado", "Subprocess": "Foreclosure Commitment", "Completed": "1", "Recieved": "1" }, { "ddate": "07/02/2019", "pprocess": "Colorado", "Subprocess": "Mortgage Guarantee", "Completed": "2", "Recieved": "2" }, { "ddate": "07/02/2019", "pprocess": "Colorado", "Subprocess": "New Mexico Refi", "Completed": "12", "Recieved": "12" }, { "ddate": "07/02/2019", "pprocess": "Colorado", "Subprocess": "New Mexico Resale", "Completed": "12", "Recieved": "12" }, { "ddate": "07/02/2019", "pprocess": "Colorado", "Subprocess": "Refinance", "Completed": "115", "Recieved": "115" }, { "ddate": "07/02/2019", "pprocess": "Colorado", "Subprocess": "Resale", "Completed": "73", "Recieved": "73" }, { "ddate": "07/02/2019", "pprocess": "Colorado", "Subprocess": "Title Guarantee", "Completed": "1", "Recieved": "1" }, { "ddate": "07/03/2019", "pprocess": "Arizona", "Subprocess": "Refinance", "Completed": "6", "Recieved": "6" }, { "ddate": "07/03/2019", "pprocess": "Arizona", "Subprocess": "Resale", "Completed": "51", "Recieved": "51" }, { "ddate": "07/03/2019", "pprocess": "Chicago Metro", "Subprocess": "Chicago Metro- Refilong", "Completed": "10", "Recieved": "10" }, { "ddate": "07/03/2019", "pprocess": "Colorado", "Subprocess": "Mortgage Guarantee", "Completed": "3", "Recieved": "3" }, { "ddate": "07/03/2019", "pprocess": "Colorado", "Subprocess": "New Mexico Refi", "Completed": "21", "Recieved": "21" }, { "ddate": "07/03/2019", "pprocess": "Colorado", "Subprocess": "New Mexico Resale", "Completed": "2", "Recieved": "2" }, { "ddate": "07/03/2019", "pprocess": "Colorado", "Subprocess": "Refinance", "Completed": "79", "Recieved": "79" }, { "ddate": "07/03/2019", "pprocess": "Colorado", "Subprocess": "Resale", "Completed": "137", "Recieved": "137" }, { "ddate": "07/04/2019", "pprocess": "Arizona", "Subprocess": "Refinance", "Completed": "17", "Recieved": "17" }, { "ddate": "07/04/2019", "pprocess": "Arizona", "Subprocess": "Resale", "Completed": "96", "Recieved": "96" }, { "ddate": "07/04/2019", "pprocess": "Colorado", "Subprocess": "Foreclosure Commitment", "Completed": "1", "Recieved": "1" }, { "ddate": "07/04/2019", "pprocess": "Colorado", "Subprocess": "New Mexico Refi", "Completed": "2", "Recieved": "2" }, { "ddate": "07/04/2019", "pprocess": "Colorado", "Subprocess": "New Mexico Resale", "Completed": "6", "Recieved": "6" }, { "ddate": "07/04/2019", "pprocess": "Colorado", "Subprocess": "Resale", "Completed": "79", "Recieved": "79" }, { "ddate": "07/05/2019", "pprocess": "Arizona", "Subprocess": "Refinance", "Completed": "85", "Recieved": "85" }, { "ddate": "07/05/2019", "pprocess": "Arizona", "Subprocess": "Resale", "Completed": "97", "Recieved": "97" }, { "ddate": "07/05/2019", "pprocess": "Colorado", "Subprocess": "Mortgage Guarantee", "Completed": "1", "Recieved": "1" }, { "ddate": "07/05/2019", "pprocess": "Colorado", "Subprocess": "New Mexico Refi", "Completed": "1", "Recieved": "1" }, { "ddate": "07/05/2019", "pprocess": "Colorado", "Subprocess": "New Mexico Resale", "Completed": "1", "Recieved": "1" }, { "ddate": "07/05/2019", "pprocess": "Colorado", "Subprocess": "Refinance", "Completed": "16", "Recieved": "16" }, { "ddate": "07/05/2019", "pprocess": "Colorado", "Subprocess": "Resale", "Completed": "23", "Recieved": "23" }, { "ddate": "07/06/2019", "pprocess": "Arizona", "Subprocess": "Refinance", "Completed": "11", "Recieved": "11" }, { "ddate": "07/06/2019", "pprocess": "Arizona", "Subprocess": "Resale", "Completed": "81", "Recieved": "81" }, { "ddate": "07/06/2019", "pprocess": "Chicago Metro", "Subprocess": "Chicago Metro- Refilong", "Completed": "21", "Recieved": "21" }, { "ddate": "07/06/2019", "pprocess": "Colorado", "Subprocess": "Foreclosure Commitment", "Completed": "2", "Recieved": "2" }, { "ddate": "07/06/2019", "pprocess": "Colorado", "Subprocess": "Refinance", "Completed": "90", "Recieved": "90" }, { "ddate": "07/06/2019", "pprocess": "Colorado", "Subprocess": "Resale", "Completed": "69", "Recieved": "69" }]';
+        var data = JSON.parse(raw);
+        var x = data.reduce((res, obj) => {
+            var processkey = obj.ddate + '-' + obj.pprocess;
+            var subprocesskey = obj.ddadte + '-' + obj.Subprocess;
+            res[obj.ddate] = {
+                // by Process
+                processCompleted: (processkey in res ? res[processkey].processCompleted : 0) + parseInt(obj.Completed),
+                // by Subprocess
+                subprocessCompleted: (subprocesskey in res ? res[subprocesskey].subprocessCompleted : 0) + parseInt(obj.Completed)
+            }
+            return res;
+        }, {});
+        console.log(x);
+        var chart = new Chart(document.getElementById('chart-1'), {
+            type: 'line',
+            data: x
+        });
+    </script>
+</body>
+
+</html>
