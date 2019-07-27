@@ -11,16 +11,16 @@ public class JComboBoxDynamicWidth57224561 {
 
     public JComboBoxDynamicWidth57224561() {
         f = new JFrame("ComboBox Example");
-        String country[] = {"Long Item 5", "Long Item 2", "Long Item                            1", "Long Item 8", "Long Item 4"};
+        String country[] = {"Long Item                       5", "Long Item 2", "Long Item                                           1", "Long Item 8", "Long Item 4"};
         String longest = Arrays.stream(country).max((e1, e2) -> e1.length() - e2.length()).get();
         System.out.println(longest);
         MyDropdown cb = new MyDropdown(country);
         int width = findTextWidth(longest);
-        //Graphics2D g = (Graphics2D)f.getGraphics();
-        //cb.setBounds(50, 50, (int)g.getFont().getStringBounds(longest, g.getFontRenderContext()).getWidth()*2  ,20);
-        cb.setBounds(50, 50, findTextWidth(longest) * 2, 20);
+        //cb.setBounds(50, 50, 90, 20);
+        cb.setBounds(50, 50, findTextWidth(longest), 20);
         f.add(cb);
-        f.setLayout(null);
+        //f.setLayout(null);
+        f.setLayout(new BorderLayout());
         f.setSize(400, 500);
         f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         //f.pack();
