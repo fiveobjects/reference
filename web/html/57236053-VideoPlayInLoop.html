@@ -1,0 +1,26 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <video src="../resources/video1.mp4" id="video" autoplay muted controls width="400" height="400"></video>
+    <script>
+        var videos = ['../resources/video2.mp4', '../resources/video3.mp4'];
+        var currentIndex = -1;
+        var video = document.getElementById('video');
+        video.onended = function () {
+            console.log('The video has eneded: ' + video.src);
+            currentIndex++;
+            if (currentIndex < videos.length) {
+                video.src = videos[currentIndex];
+                video.load();
+                video.play();
+            }
+        }
+        //video.volume = 0.4;
+    </script>
+</body>
+
+</html>
