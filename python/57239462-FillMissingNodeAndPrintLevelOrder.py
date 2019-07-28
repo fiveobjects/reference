@@ -1,4 +1,4 @@
-from Queue import Queue
+from collections import deque
 
 
 class Node:
@@ -31,21 +31,21 @@ def traverseLevelOrder(q):
     while(q.qsize() > 1):
         current = q.get()
         if(current == None):
-            q.put(None)
+            q.append(None)
             print("\n")
         else:
             if(current.left != None):
-                q.put(current.left)
+                q.append(current.left)
             if(current.right != None):
-                q.put(current.right)
+                q.append(current.right)
             print(current.val),
 
 
 def traverseLevelOrderAndFillMissingNodes(q, level):
-    while(q.qsize() > 1):
-        current = q.get()
+    while(len(q) > 1):
+        current = q.popleft()
         if(current == None):
-            q.put(None)
+            q.append(None)
             print("\n")
             level = level - 1
         else:
@@ -54,9 +54,9 @@ def traverseLevelOrderAndFillMissingNodes(q, level):
             if(current.right == None and level > 0):
                 current.right = Node(-1)
             if(current.left != None):
-                q.put(current.left)
+                q.append(current.left)
             if(current.right != None):
-                q.put(current.right)
+                q.append(current.right)
             print(current.val),
 
 
@@ -75,8 +75,8 @@ root.left.left.right = Node(8)
 traverseInOrder(root)
 print("\n")
 # Level order print
-q = Queue()
-q.put(root)
-q.put(None)
+q = deque()
+q.append(root)
+q.append(None)
 # traverseLevelOrder(q)
 traverseLevelOrderAndFillMissingNodes(q, 3)
