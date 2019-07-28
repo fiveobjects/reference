@@ -41,6 +41,25 @@ def traverseLevelOrder(q):
             print(current.val),
 
 
+def traverseLevelOrderAndFillMissingNodes(q, level):
+    while(q.qsize() > 1):
+        current = q.get()
+        if(current == None):
+            q.put(None)
+            print("\n")
+            level = level - 1
+        else:
+            if(current.left == None and level > 0):
+                current.left = Node(-1)
+            if(current.right == None and level > 0):
+                current.right = Node(-1)
+            if(current.left != None):
+                q.put(current.left)
+            if(current.right != None):
+                q.put(current.right)
+            print(current.val),
+
+
 root = Node(1)
 root.left = Node(2)
 root.right = Node(3)
@@ -51,7 +70,7 @@ root.right.right.left = Node(7)
 root.left.left.right = Node(8)
 
 # Fill missing nodes
-fillMissingNodes(root, 3)
+#fillMissingNodes(root, 3)
 # In order traversal
 traverseInOrder(root)
 print("\n")
@@ -59,4 +78,5 @@ print("\n")
 q = Queue()
 q.put(root)
 q.put(None)
-traverseLevelOrder(q)
+# traverseLevelOrder(q)
+traverseLevelOrderAndFillMissingNodes(q, 3)
