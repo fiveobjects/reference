@@ -32,7 +32,7 @@ def traverseLevelOrder(q):
         current = q.get()
         if(current == None):
             q.put(None)
-            print("\n")
+            print("")
         else:
             if(current.left != None):
                 q.put(current.left)
