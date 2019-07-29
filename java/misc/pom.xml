@@ -6,11 +6,6 @@
     <groupId>org.openapex.samples</groupId>
     <artifactId>misc</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <parent>
-        <groupId>org.openapex.samples</groupId>
-        <artifactId>samples-main</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
     <dependencies>
         <dependency>
             <groupId>javax.xml.parsers</groupId>
