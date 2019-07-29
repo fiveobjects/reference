@@ -1,0 +1,21 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <a id="myLink" href="https://google.com" onclick="location.href='https://yahoo.com'" target="_blank">Click Here</a>
+    <script>
+        function makeDynamicUrlsAndChangeLink() {
+            var link = document.getElementById("myLink");
+            var param1 = "val1", param2 = "val2";
+            var link1 = "https://google.com" + "?param1=" + param1 + "&param2=" + param2;
+            var link2 = "location.href='https://vmware.com" + "?param1=" + param1 + "&param2=" + param2 + "'";
+            link.setAttribute("href", link1);
+            link.setAttribute("onclick", link2);
+        }
+        makeDynamicUrlsAndChangeLink();
+    </script>
+</body>
+
+</html>
