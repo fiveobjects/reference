@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -30,5 +31,13 @@ public class TemplateController {
     public String getHelloTemplate(ModelMap model) {
         model.addAttribute("message", "Hello World 2");
         return "hello2";
+    }
+
+    @RequestMapping(path="/cors")
+    @ResponseBody
+    public String verifyCors(){
+        RestTemplate restTemplate = new RestTemplate();
+        String result = restTemplate.getForObject("http://localhost:90/guide/company", String.class);
+        return result;
     }
 }
