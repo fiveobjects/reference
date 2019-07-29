@@ -14,7 +14,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintStream;
 import java.io.StringWriter;
 
-public class ForceTLS12 {
+public class ForceTLS12Stack57260060 {
     public static void main(String[] args) {
         try {
             System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.SimpleLog");
