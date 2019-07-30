@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -20,5 +21,6 @@ public class Channel {
     private String name;
     private double price;
     private String channelGroup;
+    private LocalDateTime marker;
 
 }

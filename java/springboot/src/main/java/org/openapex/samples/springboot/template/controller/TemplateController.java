@@ -1,6 +1,8 @@
 package org.openapex.samples.springboot.template.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.AbstractEnvironment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -12,9 +14,16 @@ import java.util.List;
 
 @Controller("templateController")
 public class TemplateController {
+    @Value("${test.product.release.year}")
+    private String releaseYear;
+
+    @Autowired
+    private AbstractEnvironment environment;
 
     @RequestMapping(path = "/template")
     public ModelAndView getHelloTemplate() {
+        System.out.println("Release Year 1: "+releaseYear);
+        System.out.println("Release Year 2:"+ environment.getProperty("test.product.release.year"));
         ModelAndView model = new ModelAndView();
         model.setViewName("hello");
         model.addObject("message", "Hello World");
