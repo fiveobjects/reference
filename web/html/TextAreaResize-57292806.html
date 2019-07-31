@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style>
+        #main {
+            display: block;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $('textarea').autoresize()
+        })
+
+        $.fn.autoresize = function (minRows = 1, maxRows = 5) {
+            var e = $(this)
+            e.attr('rows', minRows).css({ 'resize': 'none' }).on('input', function () { resize(e) })
+
+            var state = 0
+            function resize(e) {
+                if (e.attr('rows') <= maxRows) {
+                    e.attr('overflow', 'hidden')
+                    if (e[0].scrollHeight > e.innerHeight() && e.attr('rows') < maxRows) {
+                        e.attr('rows', +e.attr('rows') + 1)
+
+                        if (state) {
+                            state = 2
+                        }
+
+                        resize(e)
+                    } else if (e.attr('rows') > minRows) {
+                        if (state == 2) {
+                            state = 0
+                        } else {
+                            state = 1
+                            e.attr('rows', +e.attr('rows') - 1)
+                            resize(e)
+                        }
+                    }
+                } else {
+                    e.attr('overflow', 'auto')
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <textarea style="width: 200px"></textarea>
+</body>
+
+</html>
