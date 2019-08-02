@@ -22,5 +22,6 @@ public class Channel {
     private double price;
     private String channelGroup;
     private LocalDateTime marker;
+    private boolean isRegional;
 
 }

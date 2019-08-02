@@ -1,5 +1,8 @@
 package org.openapex.tvguide.service;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.criteria.internal.CriteriaBuilderImpl;
 import org.openapex.tvguide.dbaccess.repository.ChannelRepository;
 import org.openapex.tvguide.dbaccess.repository.CompanyRepository;
 import org.openapex.tvguide.dbaccess.repository.ProgramRepository;
@@ -12,6 +15,12 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,6 +33,11 @@ public class TvGuideService {
     private CompanyRepository companyRepository;
     @Autowired
     private MongoTemplate mongoTemplate;
+//    @Autowired
+//    private SessionFactory sessionFactory;
+
+    @PersistenceContext
+    protected EntityManager em;
 
     public List<Channel> getChannels() {
         return channelRepository.findAll();
@@ -45,12 +59,18 @@ public class TvGuideService {
         return companyRepository.getCompanies();
     }
 
-    public List<Company> getCompaniesCustomQuery(){
+    public List<Company> getCompaniesCustomQuery() {
         Query query = new Query();
         boolean someCondition = true;
-        if(someCondition) {
+        if (someCondition) {
             query.fields().exclude("officeIdEmployeeMap");
         }
         return mongoTemplate.find(query, Company.class);
+    }
+
+    public List<Channel> searchChannels(String channelName, boolean isRegional) {
+        List<Channel> channels = new ArrayList<Channel>();
+        //  em.createQuery()
+        return channels;
     }
 }

@@ -1,3 +1,6 @@
+set search_path to tvguide;
+set role tvguide;
+
 create table channel(
   channel_number int primary key,
   name text,
@@ -13,4 +16,6 @@ create sequence channel_number_seq cycle
    
 insert into channel (channel_number, name, price, channel_group)
 values (100, 'Star Movies', 10.00, 'Star');
+
+alter table channel add column is_regional boolean default false;
 

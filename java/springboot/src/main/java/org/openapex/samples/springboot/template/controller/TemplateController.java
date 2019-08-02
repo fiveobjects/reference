@@ -12,6 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
+/**
+ * https://stackoverflow.com/questions/57310678/thymeleaf-not-replacing-fragment-with-ajax-call
+ * https://stackoverflow.com/questions/57253641/spring-boot-resource-not-found-404-error-html
+ */
 @Controller("templateController")
 public class TemplateController {
     @Value("${test.product.release.year}")

@@ -51,5 +51,11 @@ public class TvGuideController {
     public List<Company> getCompaniesCustomQuery() {
         return tvGuideService.getCompaniesCustomQuery();
     }
+
+    @RequestMapping(method = RequestMethod.GET, path = "search-channels-new")
+    public List<Channel> searchChannels(@RequestParam(name = "channelName", required = false) String channelName, @RequestParam(name = "isRegional",
+            required = false) boolean isRegional) {
+        return tvGuideService.searchChannels(channelName, isRegional);
+    }
 }
 
