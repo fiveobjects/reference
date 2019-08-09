@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".a").click(function () {
+                $(this).toggleClass("active");
+            });
+        });
+    </script>
+    <style>
+        .active {
+            background-color: red !important
+        }
+
+        .a {
+            color: blue
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <input type="checkbox" value="1" id="1">
+        <label for="1" class="a">Label 1</label>
+        <input type="checkbox" value="2" id="2">
+        <label for="2" class="a">Label 2</label>
+        <input type="checkbox" value="3" id="3">
+        <label for="3" class="a">Label 3</label>
+        <input type="checkbox" value="4" id="4">
+        <label for="4" class="a">Label 4</label>
+    </div>
+</body>
+
+</html>

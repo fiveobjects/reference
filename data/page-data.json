@@ -1,0 +1,26 @@
+{
+    "page1": {
+        "pr": {
+            "user": "A",
+            "timestamp": "2017-02-23T23:08:53Z"
+        }
+    },
+    "page2": {
+        "pr": {
+            "user": "A",
+            "timestamp": "2017-02-23T23:11:01Z"
+        }
+    },
+    "page3": {
+        "pr": {
+            "user": "B",
+            "timestamp": "2017-02-23T23:11:01Z"
+        }
+    },
+    "page4": {
+        "pr": {
+            "user": "B",
+            "timestamp": "2017-02-23T23:11:01Z"
+        }
+    }
+}

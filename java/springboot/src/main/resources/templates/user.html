@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="form-group">
+    <select class="form-control-file" id="select-user-role-drop-down" name="status">
+        <option th:if="${user == null}" th:value="0" th:valuetype="com.caner.ercan.backend.custom_model.UserStatusDTO">
+            Please select status
+        </option>
+        <option th:unless="${user == null}"
+                th:value="${user.status}"
+                th:text="${user.status.name}"
+                th:selected="${user.status.id}"
+                th:valuetype="com.caner.ercan.backend.custom_model.UserStatusDTO">
+        </option>
+    </select>
+</div>
+</body>
+</html>

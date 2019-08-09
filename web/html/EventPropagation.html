@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Click Events</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#b1").click(function () {
+                console.log("From specific handler: " + this.innerHTML);
+            });
+            $("#p").on("click", "#b1", function () {
+                console.log("From parent specific(b1) handler: " + this.innerHTML)
+            });
+            $("#p").click(function () {
+                console.log("From parent general handler: " + this.innerHTML)
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="p">
+        <button id="b1">Button 1</button>
+        <button id="b1">Button 2</button>
+    </div>
+</body>

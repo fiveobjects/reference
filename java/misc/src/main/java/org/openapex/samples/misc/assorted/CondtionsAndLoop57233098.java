@@ -8,8 +8,13 @@ import java.util.*;
 public class CondtionsAndLoop57233098 {
     private static List<Person> bidders = new ArrayList<>();
     private static List<Item> items = new ArrayList<>();
-
+    public static final String request_bad  = "ncs|56-2629193|1972-03-28|20190218|77067|6208|3209440|self|-123|-123|-123|0.0|0.0|0.0|0.0|0.0|0.0";
+    public static final String request_good = "ncs|56-2629193|1972-03-28|20190218|77067|6208|3209440|self|-123|-123|-123|0.0|0.0|0.0|0.0|0.0|0.0|0.0";
     public static void main(String[] args) {
+        int[]a ={1,2,3,4};
+        System.out.println(a.length);
+        System.out.println(request_bad.split("\\|").length);
+        System.out.println(request_good.split("\\|").length);
         bidders.addAll(Arrays.asList(new Person("p1"), new Person("p2")));
         items.addAll(Arrays.asList(new Item("i1"), new Item("i2"), new Item("i3")));
         CondtionsAndLoop57233098 test = new CondtionsAndLoop57233098();

@@ -1,5 +1,7 @@
 package org.openapex.samples.springboot.template.controller;
 
+import org.openapex.samples.springboot.template.model.User;
+import org.openapex.samples.springboot.template.model.UserStatusDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.AbstractEnvironment;
@@ -52,5 +54,13 @@ public class TemplateController {
         RestTemplate restTemplate = new RestTemplate();
         String result = restTemplate.getForObject("http://localhost:90/guide/company", String.class);
         return result;
+    }
+
+    @RequestMapping(path="/nesteddata")
+    public String getUserData(Model model){
+        User user = new User(new UserStatusDto(100L, "abc"));
+
+        model.addAttribute("user", user);
+        return "user";
     }
 }

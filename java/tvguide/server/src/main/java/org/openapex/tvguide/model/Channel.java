@@ -4,8 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Getter
@@ -13,6 +16,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "channel")
+@Validated
 public class Channel {
     @Id
     @SequenceGenerator(name="channel_number_seq", initialValue = 101)
@@ -23,5 +27,9 @@ public class Channel {
     private String channelGroup;
     private LocalDateTime marker;
     private boolean isRegional;
+    @Transient
+    @NotNull
+    @Valid
+    private ChannelAdditionalInfo additionalInfo;
 
 }

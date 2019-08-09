@@ -1,6 +1,7 @@
 package org.openapex.tvguide.controller;
 
 import org.openapex.tvguide.model.Channel;
+import org.openapex.tvguide.model.ChannelAdditionalInfo;
 import org.openapex.tvguide.model.Company;
 import org.openapex.tvguide.model.ProgramDocument;
 import org.openapex.tvguide.service.TvGuideService;
@@ -8,15 +9,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController(value = "tvGuideController")
 @RequestMapping(path = "/guide")
 @CrossOrigin(maxAge = 3600)
-
+@Validated
 public class TvGuideController {
     @Autowired
     private TvGuideService tvGuideService;
@@ -32,7 +35,8 @@ public class TvGuideController {
     }
 
     @RequestMapping(method = RequestMethod.POST, path = "channel")
-    public void createChannel(@RequestBody Channel channel) {
+    public void createChannel(@RequestBody @Valid Channel channel) {
+        ChannelAdditionalInfo info =(ChannelAdditionalInfo) channel.getAdditionalInfo();
         tvGuideService.createChannel(channel);
     }
 

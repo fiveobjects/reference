@@ -12,14 +12,9 @@ import javax.servlet.MultipartConfigElement;
 @Configuration
 public class CustomServletConfiguration {
     @Bean
-    public ServletRegistrationBean registerFileUploadServlet(){
+    public ServletRegistrationBean registerFileUploadServlet() {
         ServletRegistrationBean servlet = new ServletRegistrationBean(new MyFileUploadServelt(), "/fileupload");
         servlet.setMultipartConfig(new MultipartConfigElement(""));
         return servlet;
     }
-
-//    @Bean
-//    public MultipartResolver multipartResolver() {
-//        return new StandardServletMultipartResolver();
-//    }
 }
