@@ -1,0 +1,20 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        console.log("ready");
+        $("#b1").click(function () {
+            console.log("clicked");
+            doSomething();
+            $("#e1").text("From Button Event");
+        });
+    });
+
+    function doSomething() {
+        console.log("something")
+        $("#e2").text("Done Something");
+    }
+
+</script>
+<h2 id="e1">Default</h2>
+<h3 id="e2">Default</h3>
+<button id="b1">Click Me</button>

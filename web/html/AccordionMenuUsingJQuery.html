@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Click Events</title>
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <div class="box__dlk--dropdown">
+        <div id="dropdown__dlk-1" class="dropdown__dlk dropdown-processed">
+            <a class="dropdown-link" href="#">GRUPO DE INFORMAÇÂO <span class="icons">+</span></a>
+            <div class="dropdown-container" style="display: none;">
+                chamada 01
+            </div>
+        </div>
+
+        <div id="dropdown__dlk-2" class="dropdown__dlk dropdown-processed">
+            <a class="dropdown-link" href="#">AVALIAÇÃO <span class="icons">+</span></a>
+            <div class="dropdown-container" style="display: none;">
+                chamada 02
+            </div>
+        </div>
+
+        <div id="dropdown__dlk-3" class="dropdown__dlk dropdown-processed">
+            <a class="dropdown-link" href="#">TABELA DE MEDIDAS <span class="icons">+</span></a>
+            <div class="dropdown-container" style="display: none;">
+                chama 03
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+
+            $("a.dropdown-link").click(function (e) {
+                e.preventDefault();
+                var $div = $(this).next('.dropdown-container');
+                var $icon = $(this).children('.icons').first();
+
+                $(".dropdown-container").not($div).hide();
+                $(".icons").not($icon).text('+');
+                if ($div.is(":visible")) {
+                    $div.hide();
+                    $icon.text('+');
+                } else {
+                    $div.show();
+                    $icon.text('-');
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>

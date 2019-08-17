@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<gloss>
+    <word id="001">
+        <eng>ball</eng>
+        <bos>lopta</bos>
+    </word>
+    <word id="002">
+        <eng>house</eng>
+        <bos>kuca</bos>
+    </word>
+    <word id="003">
+        <eng>game</eng>
+        <bos>igra</bos>
+    </word>
+</gloss>

@@ -28,8 +28,10 @@ public class Channel {
     private LocalDateTime marker;
     private boolean isRegional;
     @Transient
-    @NotNull
-    @Valid
+    //@NotNull
+    //@Valid
     private ChannelAdditionalInfo additionalInfo;
+    @Column(name="b_index")
+    private Long bIndex;
 
 }

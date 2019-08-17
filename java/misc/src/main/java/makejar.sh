@@ -1,0 +1,1 @@
+jar -cvf MANIFEST.MF org/openapex/samples/misc/MyInstrumentationAgent.class

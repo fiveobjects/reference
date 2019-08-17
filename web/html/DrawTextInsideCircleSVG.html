@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Click Events</title>
+    <style>
+        svg {
+            border: 1px solid #000000;
+            background: black;
+        }
+    </style>
+</head>
+
+<body>
+    <svg id="svg" width="100" height="100">
+    </svg>
+    <script>
+        const svg = document.querySelector('#svg');
+        const svgNS = svg.namespaceURI;
+        const rect = document.createElementNS(svgNS, 'rect');
+
+        const offsetX = 20;
+        const offsetY = 20;
+
+        const outerCircle = document.createElementNS(svg.namespaceURI, 'circle');
+        outerCircle.setAttributeNS(null, 'cx', offsetX.toString());
+        outerCircle.setAttributeNS(null, 'cy', offsetY.toString());
+        outerCircle.setAttributeNS(null, 'r', '9');
+        outerCircle.setAttributeNS(null, 'fill', 'white');
+        outerCircle.setAttributeNS(null, 'stroke', 'white');
+        outerCircle.setAttributeNS(null, 'stroke-width', '1');
+        svg.appendChild(outerCircle);
+
+
+        const circle = document.createElementNS(svg.namespaceURI, 'circle');
+        circle.setAttributeNS(null, 'cx', offsetX.toString());
+        circle.setAttributeNS(null, 'cy', offsetY.toString());
+        circle.setAttributeNS(null, 'r', '7');
+        circle.setAttributeNS(null, 'fill', 'red');
+        circle.setAttributeNS(null, 'stroke', 'red');
+        circle.setAttributeNS(null, 'stroke-width', '1');
+        svg.appendChild(circle);
+
+        const number = document.createElementNS(svg.namespaceURI, 'text');
+        number.setAttributeNS(null, 'x', offsetX.toString());
+        number.setAttributeNS(null, 'y', offsetY + 5);
+        number.setAttributeNS(null, 'text-anchor', 'middle');
+        number.setAttributeNS(null, 'stroke', 'white');
+        number.setAttributeNS(null, 'fill', 'white');
+        number.setAttributeNS(null, 'stroke-width', '1px');
+        number.textContent = '1';
+        svg.appendChild(number);
+
+    </script>
+</body>
+
+</html>

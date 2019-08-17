@@ -1,0 +1,9 @@
+Create a manifest file named manifest.txt using the following content (ensure to give a new line at the end):
+Premain-Class: org.openapex.samples.misc.instrument.MyInstrumentationAgent
+Agent-Class: org.openapex.samples.misc.instrument.MyInstrumentationAgent
+
+Create the agent jar:
+jar -cvfm myagent.jar manifest.txt org/openapex/samples/misc/instrument/MyInstrumentationAgent.class
+
+Run your application with the agent:
+java -javaagent:myagent.jar org.openapex.samples.misc.instrument.ObjectSize

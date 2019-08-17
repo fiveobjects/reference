@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.stream.Collectors;
 
-@WebServlet(urlPatterns = "/upload")
+@WebServlet(urlPatterns = "/servelt-upload")
 @MultipartConfig
 public class MyFileUploadServelt extends HttpServlet {
     private static final String CONTENT_DISPOSITION_KEY = "content-disposition";

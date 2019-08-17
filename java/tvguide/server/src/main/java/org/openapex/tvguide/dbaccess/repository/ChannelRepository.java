@@ -11,4 +11,6 @@ import java.util.List;
 @Repository
 public interface ChannelRepository extends JpaRepository<Channel, Integer> {
     List<Channel> findByChannelGroup(String group);
+    List<Channel> findByBIndex(Long value);
+    List<Channel> findByChannelGroupOrderByBIndex(String group);
 }

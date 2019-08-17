@@ -5,6 +5,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Arrays;
+import java.util.List;
+
+import javax.websocket.server.PathParam;
+
 @RestController("generalController")
 public class GeneralController {
     @RequestMapping(path = "/person1")
@@ -13,9 +18,15 @@ public class GeneralController {
     }
 
     @RequestMapping(path = "/person2")
-    public Person getPerson2() {
+    public Person getPerson2(@PathParam("gh") String x) {
         return new Person("xyz", false);
     }
+
+    @RequestMapping(path = "/urls")
+    public List<String> getUrls() {
+        return Arrays.asList("http://abc", "http://def", "http://ghe");
+    }
+
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private static class Person {
         private String name;

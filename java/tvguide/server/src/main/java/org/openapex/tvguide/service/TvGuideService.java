@@ -40,6 +40,9 @@ public class TvGuideService {
     protected EntityManager em;
 
     public List<Channel> getChannels() {
+        System.out.println(channelRepository.findByBIndex(10L));
+        System.out.println(channelRepository.findByChannelGroupOrderByBIndex("Star"));
+
         return channelRepository.findAll();
     }
 

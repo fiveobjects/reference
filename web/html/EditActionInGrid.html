@@ -1,0 +1,55 @@
+<div class='card-body'>
+    <div class='row'>
+        <div class='col-md-12'>
+            <strong>User 1</strong>
+            <span class='float-right'>10 days ago</span>
+            <p>Comment 1</p>
+            <form class='cmtForm py-3'
+                action='/campgrounds/<%=campground._id%>/comments/<%=comment.author.username%>/<%=comment._id%>?_method=PUT'
+                method='POST'>
+                <textarea class="form-control" rows="3" name='updateComment'>Comment 1</textarea>
+                <button class=' btn btn-success btn-sm m-3 float-right'>Update</button>
+            </form>
+            <button class='editBtn sel btn btn-secondary btn-sm float-right' id='<%=comment._id %>'>Edit</button>
+            <form action='/campgrounds/<%=campground._id%>/comments/<%=comment._id%>?_method=DELETE' method='POST'>
+                <button class='btn btn-danger btn-sm mr-2 float-right '>Delete</button>
+            </form>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-12'>
+            <strong>User 2</strong>
+            <span class='float-right'>10 days ago</span>
+            <p>Comment 2</p>
+            <form class='cmtForm py-3'
+                action='/campgrounds/<%=campground._id%>/comments/<%=comment.author.username%>/<%=comment._id%>?_method=PUT'
+                method='POST'>
+                <textarea class="form-control" rows="3" name='updateComment'>Comment 2</textarea>
+                <button class=' btn btn-success btn-sm m-3 float-right'>Update</button>
+            </form>
+            <button class='editBtn sel btn btn-secondary btn-sm float-right' id='<%=comment._id %>'>Edit</button>
+            <form action='/campgrounds/<%=campground._id%>/comments/<%=comment._id%>?_method=DELETE' method='POST'>
+                <button class='btn btn-danger btn-sm mr-2 float-right '>Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $('.cmtForm').css('display', 'none');
+    let status = true;
+    $('.editBtn').on('click', (event) => {
+        if (status) {
+            $(event.target).text('Cancel');
+            $(event.target).siblings('.cmtForm').css('display', 'block');
+            // $(this).siblings('.cmtForm').addClass('cmtForm form-control show');
+        }
+
+        else {
+            $(event.target).text('Edit');
+            $(event.target).siblings('.cmtForm').css('display', 'none');
+            // $(this).siblings('.cmtForm').removeClass('cmtForm form-control hide');
+        }
+        status = !status;
+    });
+</script>

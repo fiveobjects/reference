@@ -1,0 +1,17 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        console.log("ready");
+        $(".b").click(function (event) {
+            $(this).siblings('.h').text("hello");
+        });
+    });
+</script>
+<div>
+    <label class="h">first</label>
+    <button class="b">Edit</button>
+</div>
+<div>
+    <label class="h">second</label>
+    <button class="b">Edit</button>
+</div>

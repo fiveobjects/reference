@@ -1,4 +1,4 @@
-package org.openapex.samples.misc.json;
+package org.openapex.samples.misc.parse.json;
 
 import org.json.JSONObject;
 

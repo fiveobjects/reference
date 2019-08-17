@@ -1,5 +1,7 @@
 package org.openapex.samples.misc.assorted;
 
+import javax.swing.*;
+
 public class BigLoop {
     public static void main(String args[]) {
         double stressCalc = 0.0001;
@@ -9,5 +11,6 @@ public class BigLoop {
             stressCalc += i;
         }
         System.out.println("Time taken: " + (System.currentTimeMillis() - startTime) + " ms");
+        JPanel[][] panels = {{}, {}};
     }
 }

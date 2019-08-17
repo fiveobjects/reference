@@ -1,4 +1,5 @@
-Id;First Name;Name;Country;Email
-0;Paul;TRUC;FR;test@gmail,com
-1;Henry;DEFAULT;US;test1@gmail.com
-2;John;TEMP;GB;test2@gmail.com
+users
+Id,First Name,Name,Country,Email
+0,Paul,TRUC,FR,test@gmail.com
+1,Henry,DEFAULT,US,test1@gmail.com
+2,John,TEMP,GB,test2@gmail.com
