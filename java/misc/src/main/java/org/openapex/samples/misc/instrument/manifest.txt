@@ -1,0 +1,2 @@
+Premain-Class: org.openapex.samples.misc.instrument.MyInstrumentationAgent
+Agent-Class: org.openapex.samples.misc.instrument.MyInstrumentationAgent
