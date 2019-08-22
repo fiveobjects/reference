@@ -11,7 +11,7 @@ public class MyInstrumentationAgent {
     public static void premain(String agentArgs, Instrumentation inst){
         instrumentation = inst;
         System.out.println("Set the instrumentation from premain");
-        instrumentation.addTransformer(new MyClassTransformer());
+        //instrumentation.addTransformer(new MyClassTransformer());
     }
     public static void premain(String agentArgs){
         System.out.println("Unable to set instrumentation premain");
