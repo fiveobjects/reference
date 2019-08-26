@@ -1,14 +1,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<form id="f" method="post" action="http://localhost:90/guide/channels">
-    <input type="text" name="sometext" />
-    <input type="hidden" name="submit" value="go" />
-</form>
-<label id="link">Click</label>
+<div id="main"></div>
 <script>
-    $(document).ready(function () {
-        $("#link").click(function () {
-            console.log($("form"));
-            $("#f").submit();
+    images = ['airplane.png', 'boat.png', 'fruits.png', 'tulips.png', 'pool.png']
+    $(document).ready(() => {
+        images.forEach((image, index) => {
+            var img = $('<img width="100px" height="100px" id="img-' + index + '" src="https://homepages.cae.wisc.edu/~ece533/images/' + image + '">');
+            img.attr('style', 'position:absolute;top:' + getRandomNumber() + 'px;left:' + getRandomNumber() + 'px');
+            img.appendTo('#main');
         });
+        function getRandomNumber() {
+            return Math.ceil(Math.random() * 600);
+        }
     });
 </script>

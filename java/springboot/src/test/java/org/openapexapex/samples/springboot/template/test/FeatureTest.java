@@ -1,3 +1,5 @@
+package org.openapexapex.samples.springboot.template.test;
+
 import org.junit.Test;
 import org.mockito.Mockito;
 import org.openapex.samples.springboot.template.Feature;
