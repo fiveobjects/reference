@@ -74,3 +74,5 @@ node_modules/
 #Mac Files
 .DS_Store
 .DS_Store?
+
+*vmware*

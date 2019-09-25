@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://openapex.org/resources/css/main.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(() => {
+        $.ajax({
+            url: 'https://api.github.com/orgs/CloudHealth/repos?per_page=500',
+            type: 'GET',
+            dataType: 'json',
+            headers: {
+                'Authorization': 'Basic bXNhaGFjb2RlOm1zYWhhQDEw'
+            },
+            success: result => {
+                let names = result.map(item => { return { 'name': item.name, 'description': item.description } });
+                console.log(names.length);
+                $("#repo").DataTable({ data: names, columns: [{ 'data': 'name' }, { 'data': 'description' }] });
+            },
+            error: error => { }
+        });
+    });
+</script>
+<h3>CloudHealth Repos</h3>
+<div id="main">
+    <table id="repo" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+    </table>
+</div>

@@ -1,26 +1,16 @@
-import xml.etree.ElementTree as et
+import json
 import csv
-
-tree = et.parse("../data/customers.xml")
-root = tree.getroot()
-headers = []
-count = 0
-xml_data_to_csv = open('../data/customers.csv', 'w')
-
-csvWriter = csv.writer(xml_data_to_csv)
-for customer in root.findall('Customer'):
-    data = []
-    for detail in customer:
-        if(detail.tag == 'FullAddress'):
-            for addresspart in detail:
-                data.append(addresspart.text.rstrip('/n/r'))
-                if(count == 0):
-                    headers.append(addresspart.tag)
-        else:
-            data.append(detail.text.rstrip('/n/r'))
-            if(count == 0):
-                headers.append(detail.tag)
-    if(count == 0):
-        csvWriter.writerow(headers)
-    csvWriter.writerow(data)
-    count = count + 1
+input = '/Users/msaha/Work/Projects/Itfm/mywork/customer-issues/credit suisse/emea/deployment/customer/missing-deployments-28aug.csv'
+output = '/Users/msaha/Work/Projects/Itfm/mywork/customer-issues/credit suisse/emea/deployment/customer/missing-deployments-json-payload-28aug.json'
+payload = []
+with open(input, 'r') as f:
+    # data = csv.reader(f)
+    data = csv.DictReader(f)
+    for row in data:
+        properties = {"name": row["id"], "tenant": row["tenant_id"],
+                      "description": row["name"], "businessGroup": row["subtenant_id"], "cafeResourceId": row["cafe_resource_id"], "blueprint": row["bp_object_id"]}
+        payload.append(
+            {"time": 1567152935980, "changeType": "add", "source": "vRA-Server",   "entityType": "deployment", "entityId": row["id"], "properties": properties, "dcRecordTime": 1567152935980})
+changes = {"changes": payload}
+with open(output, 'w') as f:
+    json.dump(changes, f)
