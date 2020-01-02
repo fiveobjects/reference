@@ -6,18 +6,19 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * BasicHttpClient class is capable to invoke URL, receive response
+ * HttpClient class is capable to invoke URL, receive response
  * from server and process data.
- * @author Five Objects
+ * @author mrityunjoy_saha
  * @version 1.0
+ * @since Apex 1.2
  */
-public class BasicHttpClient {
+public class HttpClient {
 
     /**
-     * Creates a new instance of {@code BasicHttpClient}.
+     * Creates a new instance of {@code HttpClient}.
      * @param proxyConnection Indicates whether or nor proxy connection to be used.
      */
-    public BasicHttpClient(boolean proxyConnection) {
+    public HttpClient(boolean proxyConnection) {
         // In case proxy connection is required set additional connection properties.
         if (proxyConnection) {
             setupProxy();
@@ -41,8 +42,8 @@ public class BasicHttpClient {
      * @param args Input arguments to the program.
      */
     public static void main(String[] args) {
-        BasicHttpClient handler = new BasicHttpClient(false);
-        InputStream response = handler.sendRequest("http://localhost:82/index.php");
+        HttpClient handler = new HttpClient(false);
+        InputStream response = handler.sendRequest("http://localhost/index.php");
         handler.processResponse(response);
     }
 
