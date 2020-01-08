@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Scanner;
 
 /**
  * HttpClient class is capable to invoke URL, receive response
@@ -43,8 +44,17 @@ public class HttpClient {
      */
     public static void main(String[] args) {
         HttpClient handler = new HttpClient(false);
-        InputStream response = handler.sendRequest("http://localhost/index.php");
-        handler.processResponse(response);
+        Scanner scanner = new Scanner(System.in);
+        while(true) {
+            System.out.println("URL (q to quit):");
+            String url = scanner.nextLine();
+            if(!url.equalsIgnoreCase("q")) {
+                InputStream response = handler.sendRequest(url.trim());
+                handler.processResponse(response);
+            } else {
+                break;
+            }
+        }
     }
 
     /**
