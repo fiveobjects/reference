@@ -1,0 +1,18 @@
+<script>
+    function drag(event) {
+        event.dataTransfer.setData("text", this.event.target.src);
+    }
+    function drop(event) {
+        event.preventDefault();
+        let data = event.dataTransfer.getData("text");
+        document.getElementById("display").innerText = document.getElementById("display").value + "  " + data;
+    }
+    function allow(event) {
+        event.preventDefault();
+    }
+</script>
+<img src="https://openapex.org/resources/images/apexlogo-short.png" draggable="true" ondragstart="drag(event)">
+<img src="https://openapex.org/resources/images/project-support.jpg" draggable="true" ondragstart="drag(event)">
+<br />
+<br />
+<textarea id="display" ondrop="drop(event)" ondragover="allow(event)" rows="20" cols="100"></textarea>

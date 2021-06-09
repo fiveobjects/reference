@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <script type="text/javascript">
+        function populateDataMethod1() {
+            var data = [{ "storyteller": "M1:Name 1", "storytitle": "M1:Title 1", "readyFile": "M1:File 1", "rawfile": "M1:File A" },
+            { "storyteller": "M1:Name 2", "storytitle": "M1:Title 2", "readyFile": "M1:File 2", "rawfile": "M1:File B" },
+            { "storyteller": "M1:Name 3", "storytitle": "M1:Title 3", "readyFile": "M1:File 3", "rawfile": "M1:File C" }]
+            var table = document.getElementById("data");
+            data.forEach(doc => {
+                var row = table.insertRow();
+                row.insertCell().innerHTML = doc.storyteller;
+                row.insertCell().innerHTML = doc.storytitle;
+                row.insertCell().innerHTML = doc.readyFile;
+                row.insertCell().innerHTML = doc.rawfile;
+            });
+        }
+        function populateDataMethod2() {
+            var data = [{ "storyteller": "M2:Name 1", "storytitle": "M2:Title 1", "readyFile": "M2:File 1", "rawfile": "M2:File A" },
+            { "storyteller": "M2:Name 2", "storytitle": "M2:Title 2", "readyFile": "M2:File 2", "rawfile": "M2:File B" },
+            { "storyteller": "M2:Name 3", "storytitle": "M2:Title 3", "readyFile": "M2:File 3", "rawfile": "M2:File C" }]
+            var table = document.getElementById("data-table");
+            var dataHtml = "";
+            data.forEach(doc => {
+                dataHtml += "<tr><td>" + doc.storyteller + "</td><td>" + doc.storytitle + "</td><td>" +
+                    doc.readyFile + "</td><td>" + doc.rawfile + "</td></tr>";
+            });
+            document.getElementById("data").innerHTML = dataHtml;
+        }
+        function populateDataMethod3() {
+            var data = [{ "storyteller": "M3:Name 1", "storytitle": "M3:Title 1", "readyFile": "M3:File 1", "rawfile": "M3:File A" },
+            { "storyteller": "M3:Name 2", "storytitle": "M3:Title 2", "readyFile": "M3:File 2", "rawfile": "M3:File B" },
+            { "storyteller": "M3:Name 3", "storytitle": "M3:Title 3", "readyFile": "M3:File 3", "rawfile": "M3:File C" }]
+            var table = document.getElementById("data-table");
+            data.forEach(doc => {
+                var row = document.createElement("tr");
+                var column1 = document.createElement("td");
+                var column2 = document.createElement("td");
+                var column3 = document.createElement("td");
+                var column4 = document.createElement("td");
+                column1.appendChild(document.createTextNode(doc.storyteller));
+                column2.appendChild(document.createTextNode(doc.storytitle));
+                column3.appendChild(document.createTextNode(doc.readyFile));
+                column4.appendChild(document.createTextNode(doc.rawfile));
+                row.appendChild(column1);
+                row.appendChild(column2);
+                row.appendChild(column3);
+                row.appendChild(column4);
+                document.getElementById("data").appendChild(row);
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" value="Populate in Method 1" onclick="populateDataMethod1()" />
+    <input type="button" value="Populate in Method 2" onclick="populateDataMethod2()" />
+    <input type="button" value="Populate in Method 3" onclick="populateDataMethod3()" />
+    <ul>
+        <li>Method 1: Use insertRow() and insertCell() methods after obtaining the table object using
+            document.getElementById('tableId')</li>
+        <li>Method 2: Prepare the HTMl for all rows dynamically and then set innerHTML of tbody</li>
+        <li>Method 3: Use createElement(), createTextNode() to create row, column, text values and then use
+            appendChild() to append the
+            element at the appropriate place.</li>
+    </ul>
+    <table class="table table-striped" id="data-table">
+        <thread>
+            <tr>
+                <th>Story Teller Name</th>
+                <th>Story Title</th>
+                <th>Ready File</th>
+                <th>Raw File </th>
+            </tr>
+        </thread>
+        <tbody id="data">
+        </tbody>
+    </table>
+</body>
+
+</html>

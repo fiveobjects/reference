@@ -8,9 +8,8 @@ public class DiceValidator implements ConstraintValidator<DiceConstraint, Intege
 
     protected int validSides [] = {2,4,6,8,10,12,20,100};
 
-    @Override
     public boolean isValid(Integer sides, ConstraintValidatorContext constraintValidatorContext) {
-        return Arrays.stream(validSides).anyMatch(i -> i == sides.intValue());
-
+        //return Arrays.stream(validSides).anyMatch(i -> i == sides.intValue());
+        return true;
     }
 }

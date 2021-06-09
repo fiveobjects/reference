@@ -1,0 +1,18 @@
+<script>
+    function drag(event) {
+        event.preventDefault();
+        event.dataTransfer.setData("text", this.event.target.src);
+    }
+    function drop(event) {
+        event.preventDefault();
+        let data = event.dataTransfer.files;
+        for (file of data) {
+            document.getElementById("display").innerText = document.getElementById("display").value + "  " + file.name;
+        }
+    }
+    function allow(event) {
+        event.preventDefault();
+    }
+</script>
+Drag files here:
+<textarea id="display" ondrop="drop(event)" ondragover="allow(event)" rows="20" cols="100"></textarea>

@@ -1,0 +1,25 @@
+<script type="text/Javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        let result = $('.wrapper-container').find('.list-item').map(function () {
+            return {
+                offerCode: $(this).attr('data-offer-code'),
+                roomCode: $(this).attr('data-room-code'),
+                title: $(this).find('h2').html()
+            }
+        });
+        console.log(result.get());
+    });
+</script>
+
+<div class="wrapper-container">
+    <div class="list-item" data-offer-code="sss" data-room-code="Twin">
+        <h2>Title 1</h2>
+    </div>
+    <div class="list-item" data-offer-code="fff" data-room-code="Max">
+        <h2>Title 2</h2>
+    </div>
+    <div class="list-item" data-offer-code="ddd" data-room-code="Min">
+        <h2>Title 2</h2>
+    </div>
+</div>
